@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,10 +15,11 @@
 
     td {
       background-color: wheat;
-      border: 0.25rem solid #8EE4D7 ;
+      border: 0.25rem solid #8EE4D7;
     }
   </style>
 </head>
+
 <body>
   <table>
     <tbody>
@@ -155,6 +157,11 @@
     let lastSound = clickSound;
 
     // TODO: 1 - make it such that if any table cell is clicked, the onClick function below is executed
+    const cells = document.querySelectorAll('td');
+
+    cells.forEach(cell => {
+      cell.addEventListener('click', onClick);
+    });
 
     function onClick(ev) {
       lastSound.pause()
@@ -171,7 +178,7 @@
 
       console.log(`ev in onClick ${ev}`)
       // TODO: 2 - REMOVE THE TABLE CELL THAT WAS CLICKED
-
+      ev.target.style.visibility = 'hidden';
     }
   </script>
 </body>
